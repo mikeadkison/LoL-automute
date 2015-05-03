@@ -31,11 +31,18 @@ public class GUI extends Application {
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
 
-        Label userName = new Label("username:");
+        Label userName = new Label("login username:");
         grid.add(userName, 0, 1);
-
+        
         TextField userTextField = new TextField();
         grid.add(userTextField, 1, 1);
+
+
+        Label summonerName = new Label("summoner name:");
+        grid.add(summonerName, 2, 1);
+
+        TextField summonerNameTextField = new TextField();
+        grid.add(summonerNameTextField, 3, 1);
 
         Label pw = new Label("password:");
         grid.add(pw, 0, 2);
@@ -56,7 +63,7 @@ public class GUI extends Application {
         TextField apiKeyTextField = new TextField();
         grid.add(apiKeyTextField, 1, 4);
 
-        Button btn = new Button("press me to mute once your game is loading");
+        Button btn = new Button("press me to mute once your game is done loading");
         HBox hbBtn = new HBox(10);
         hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
         hbBtn.getChildren().add(btn);
@@ -74,17 +81,23 @@ public class GUI extends Application {
             @Override
             public void handle(ActionEvent e) {
                 actiontarget.setFill(Color.FIREBRICK);
-                String username = userTextField.getText();
+                String username = userTextField.getText(); //used to log in
+                String summonerName = summonerNameTextField.getText(); //visible to other players
                 String password = passTextField.getText();
                 String muteMsg = muteMsgTextField.getText();
                 String apiKey = apiKeyTextField.getText();
+
+
                 ChatUser chatUser = new ChatUser(username, password, apiKey);
                 List<User> friends = chatUser.getFriends();
+                
+                APIuser apiUser = new APIuser(summonerName, apiKey);
+                List<User> inGames = apiUser.getInGame();
                 
             }
         });
 
-        Scene scene = new Scene(grid, 600, 275);
+        Scene scene = new Scene(grid, 800, 275);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
