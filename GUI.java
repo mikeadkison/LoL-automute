@@ -20,6 +20,8 @@ import javafx.stage.Stage;
 import java.util.List;
 import java.util.ArrayList;
 
+import java.awt.AWTException;
+
 public class GUI extends Application {
 
     @Override
@@ -93,7 +95,21 @@ public class GUI extends Application {
                 
                 APIuser apiUser = new APIuser(summonerName, apiKey);
                 List<User> inGames = apiUser.getInGame();
-                
+
+                List<User> toMute = new ArrayList<>();
+                for (User user: inGames) {
+                    if (!friends.contains(user)) {
+                        toMute.add(user);
+                    }
+                }
+                RobotMuter robotMuter = new RobotMuter();
+                for (User mutee: toMute) {
+                    try {
+                        robotMuter.mute(mutee);
+                    } catch (AWTException ae) {
+                        System.out.println(ae.getMessage());
+                    }
+                }
             }
         });
 
