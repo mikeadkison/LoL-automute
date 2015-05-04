@@ -6,8 +6,9 @@ public class RobotMuter {
     public void mute(User toMute) throws AWTException {
         String username = toMute.getName();
         String muteCommand = "/mute ";
+        int sleepTime = 10000;
         try {
-            Thread.currentThread().sleep(3000);
+            Thread.currentThread().sleep(sleepTime);
         } catch (InterruptedException e) {
 
         }
