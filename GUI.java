@@ -124,7 +124,7 @@ public class GUI extends Application {
                 RobotMuter robotMuter = new RobotMuter();
                 
                 //give user some time to tab back in
-                final int SLEEP_TIME = 8000;
+                final int SLEEP_TIME = 6000;
                 try {
                     Thread.currentThread().sleep(SLEEP_TIME);
                 } catch (InterruptedException ie) {

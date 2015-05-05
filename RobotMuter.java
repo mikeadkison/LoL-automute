@@ -6,22 +6,27 @@ public class RobotMuter {
     public void mute(User toMute) throws AWTException {
         String username = toMute.getName();
         String muteCommand = "/mute ";
-        //press enter to open chat
-        typeChar('\n');
         //enter in the mute command and the user
-        typeString(muteCommand);
-        typeString(username);
-        //press enter to send mute command
-        typeChar('\n');
+        typeString(muteCommand + username);
     }
     public void typeString(String str) throws AWTException {
+        //press enter to open chat
+        waitFor(100);
+        typeChar('\n');
+        //type the string
         for (int i = 0; i < str.length(); i++) {
-            try {
-                Thread.currentThread().sleep(200);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
+            waitFor(100);
             typeChar(str.charAt(i));
+        }
+        //press enter to close chat
+        waitFor(100);
+        typeChar('\n');
+    }
+    private void waitFor(int milliseconds) {
+        try {
+            Thread.currentThread().sleep(milliseconds);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
         }
     }
 
