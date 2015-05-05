@@ -29,6 +29,6 @@ public class User {
             return false;
         }
         User theOther = (User) other;
-        return this.getName().equals(theOther.getName());
+        return this.getName().toLowerCase().equals(theOther.getName().toLowerCase());
     }
 }

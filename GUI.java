@@ -117,7 +117,7 @@ public class GUI extends Application {
 
                 List<User> toMute = new ArrayList<>();
                 for (User user: inGames) {
-                    if (!friends.contains(user)) {
+                    if (!friends.contains(user) && !user.getName().toLowerCase().equals(GUI.this.username.toLowerCase())) {
                         toMute.add(user);
                     }
                 }
