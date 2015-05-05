@@ -4,13 +4,15 @@
 Automatically mute players in your League of Legends game who are not on your friends list.
 
 ## How to Use:
-1. Enter a non-custom game
-2. Wait until loading screen is finished
-3. Enter your information into the application
-4. Press the mute button
-5. Tab back into your LoL game
-6. Wait for the program to enter the mute commands for you. Do not open your chat or press keys until it is finished.
-7. Play the game as usual
+1. Extract the files in automuter.zip
+2. Run the application (java -jar automuter.jar)
+3. Enter your information into the text fields (it will be saved)
+4. Start a non-custom game
+5. Wait until loading screen is finished
+6. Press the mute button
+7. Tab back into your LoL game
+8. Wait for the program to enter the mute commands for you. Do not open your chat or press keys until it is finished.
+9. Play the game as usual
 
 ## Libraries used:
 * JSON.simple https://code.google.com/p/json-simple/
